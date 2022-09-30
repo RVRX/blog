@@ -1,0 +1,37 @@
+name: MD to HTML and Push
+run-name: Generating HTML from Markdown (via ${{ github.actor }})
+on: [push]
+jobs:
+  Generate-HTML:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - name: Retrieve markdown files list
+        run: |
+          echo "::set-output name=FILE_LIST::$(find posts -name "*.md" | while read line; do echo [\"$line\"]\,; done | tr '\n' ' ' | sed 's/..$//')"
+        id: found_files_markdown
+      - name: Retrieve/Create html files list
+        run: |
+          echo "::set-output name=FILE_LIST::$(find posts -name "*.md" | while read line; do echo \"$line\"\,; done | tr '\n' ' ' | sed 's/md/html/g' | sed 's/..$//')"
+        id: resolved_files_html
+      - name: Markdown-HTML (Generate HTML from MD)
+        uses: ZacJW/markdown-html-action@1.1.0
+        with:
+          input_files: '[["index.md"], ${{ steps.found_files_markdown.outputs.FILE_LIST }}]'
+          output_files: '["index.html", ${{ steps.resolved_files_html.outputs.FILE_LIST }}]'
+          # TODO: Generate an "index" to show as sidebar in HTML files.
+          builtin_stylesheet: 'style.css'
+          packages: 'pymdown-extensions'
+          extensions: '["pymdownx.extra"]'
+      - name: Git Auto Commit (Push all generated HTML)
+        uses: stefanzweifel/git-auto-commit-action@v4.15.0
+        with:
+          commit_message: Generate new HTML
+          create_branch: true
+          branch: generated-html-${{ github.ref }}
+          file_pattern: '*.html'
+          push_options: '--force'
