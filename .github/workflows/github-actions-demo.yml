@@ -18,6 +18,10 @@ jobs:
         run: |
           echo "::set-output name=FILE_LIST::$(find posts -name "*.md" | while read line; do echo \"$line\"\,; done | tr '\n' ' ' | sed 's/md/html/g' | sed 's/..$//')"
         id: resolved_files_html
+      - uses: "finnp/create-file-action@master"
+        env:
+          FILE_NAME: "post-index.txt"
+          FILE_DATA: "[${{ steps.resolved_files_html.outputs.FILE_LIST }}]"
       - name: Markdown-HTML (Generate HTML from MD)
         uses: ZacJW/markdown-html-action@1.1.0
         with:
@@ -33,5 +37,5 @@ jobs:
           commit_message: Generate new HTML
           create_branch: true
           branch: generated-html-${{ github.ref }}
-          file_pattern: '*.html'
+          file_pattern: '*.html post-index.txt'
           push_options: '--force'
