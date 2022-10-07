@@ -1,3 +1,15 @@
 h1 {
-	background-color: red;
+	background-color: #292b35;
+}
+
+a, a:hover, a:active, a:visited {
+	color: #e47bc2;
+}
+
+h1, h2, h3, h4, h5 {
+	color: #00afff;
+}
+
+body {
+	color: #cccccc;
 }
