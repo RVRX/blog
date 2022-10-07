@@ -30,7 +30,7 @@ jobs:
       - name: inject custom fields to HTML
         uses: DamianReeves/write-file-action@master
         with:
-          path: index.html
+          path: /home/runner/work/blog/blog/index.html
           write-mode: append
           contents: |
             <link href="/css/glow-style-terminal.css" rel="stylesheet"><header><span style="color: #89982e">RVRX</span>@<span id="page-host">github.io</span> <span style="color: #89982e" id="page-path">~/blog</span> (<span style="color: #6d71be;">master</span>) $ <span style="color: #76b8cb"><a href="https://github.com/charmbracelet/glow#glow">glow</a> <span id="page-name">index.md</span></span></header><script src="/js/glow-style-terminal-styler.js"></script>
