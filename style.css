@@ -8,8 +8,8 @@
     --inline-code-background: #2a2a2a;
     --inline-code-text: #ff5f5f;
 
-    /*--body-background-color: #232322;*/
-    --body-background-color: #000000;
+    --body-background-color: #232322;
+    /*--body-background-color: #000000;*/
     /*--body-background-color: #292b35;*/
 }
 
@@ -22,11 +22,7 @@ a, a:hover, a:active, a:visited {
 
 body {
     color: #c6c6c6;
-    /*background-color: #000000;*/
-    /*background-color: #292b35;*/
     background-color: var(--body-background-color);
-    /*font-family: 'Cascadia Code', sans-serif;*/
-    /*font-family: monaco, Consolas, Lucida Console, monospace;*/
     font-family: Consolas, monaco, monospace;
 }
 
@@ -41,29 +37,34 @@ h1 {
     display:inline;
     background-color: #5f5fff;
     color: #fffb87;
-    font-size: 13px;
-    padding-left: 6px;
-    padding-right: 6px;
+    font-size: 1.25rem;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 h2, h3, h4, h5 {
     color: #00afff;
-    font-size: 13px;
+    font-size: 1.25rem;
 }
 
 body {
-    font-size: 13px;
+    font-size: 1.25rem;
     margin-left: 2em;
     margin-right: 2em;
-    margin-top: 2em;
-    /*margin-right: 45vw;*/
-
-    /*margin: 0 auto;*/
+    margin-top: 3em;
     max-width: 40em;
 }
 
+header {
+    /*text-align: left; !important;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-bottom: 10em;
+}
 
-a::after{
+/* all 'a' that are not within a 'span' within a 'header' */
+*:not(header > span) > a::after{
     content: attr(href);
     color: var(--link-text);
     text-decoration: underline;
@@ -71,6 +72,12 @@ a::after{
     padding-left: 5px;
 
 }
+
+header > span > a, header > span > a:visited {
+    /*color: inherit;*/
+    font-weight: normal;
+}
+
 a:hover::after {
     color: #366fc2;
 }
@@ -85,7 +92,6 @@ code {
 pre {
     display: inline-block;
     margin-left: 20px;
-    /*padding-left: 10px;*/
     padding: 5px;
     padding-right: 10px;
     background-color: var(--inline-code-background);
