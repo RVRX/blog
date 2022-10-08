@@ -12,8 +12,22 @@
 <main class="main">
 <header><span style="color: #89982e">RVRX</span>@<span class="page-host">localhost</span> <span style="color: #89982e" id="page-path">~/blog</span> (<span style="color: #6d71be;">master</span>) $ <span style="color: #76b8cb"><a href="https://github.com/charmbracelet/glow#glow" target="_blank">glow</a> <span id="page-name">index.md</span></span></header>
 <div class="generated-content">
-<h1>This is a test file</h1>
-<p>Lorem ipsum dolar something something...</p>
+<h1>About This Site</h1>
+<p>This site is styled to mimic my local dev terminal:</p>
+<ul>
+<li>It mimics prompt of my <a href="https://fishshell.com/">Fish shell</a>,</li>
+<li>Same <a href="https://iterm2.com/">iTerm</a> terminal theme</li>
+<li>The same <code>tmux</code> pane borders, and most importantly:</li>
+<li>The same [kinda] colors as <a href="https://github.com/charmbracelet/glow">glow</a>'s default markdown theme (hence the shell line at the top of this page).</li>
+</ul>
+<h2>How I Use it</h2>
+<p>This site is hosted at<a href="https://github.com/RVRX/blog"></a> via GitHub Pages.
+GitHub Actions is set up to automatically generate <code>.html</code> files from the <code>.md</code> files I create.
+This is done via the python package <code>markdown</code> – running in a custom script on every push to the <code>develop</code> branch.
+Local previewing can be done jsut by running <code>python3 build.py</code>, or even easier with <code>glow &lt;md_filename&gt;</code>.</p>
+<h2>CREDIT</h2>
+<p>Once again, credit to the developers of <a href="https://github.com/charmbracelet/glow">glow</a> for the inspiration (and for the GitHub CLI for introducing me to the project via <code>gh repo view</code>).</p>
+<p>Unless otherwise mentioned, rest of the content and ideas on this site are mine own ;)</p>
 </div>
 </main>
 <div class="sidebar">
