@@ -22,5 +22,5 @@ jobs:
           commit_message: Generate new HTML
           create_branch: true
           branch: generated-html-${{ github.ref }}
-          file_pattern: '*.html'
+          file_pattern: '*.html post-index.txt'
           push_options: '--force'
