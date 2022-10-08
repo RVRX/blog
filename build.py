@@ -77,3 +77,7 @@ with os.scandir('posts/') as entries:
 # BUILD INDEX FILE
 print('[build]: index.md')
 generate_html_from_file("index.md", post_list=post_list)
+
+# BUILD ABOUT FILE
+print('[build]: about.md')
+generate_html_from_file("about.md", post_list=post_list)
