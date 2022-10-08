@@ -21,6 +21,6 @@ jobs:
         with:
           commit_message: Generate new HTML
           create_branch: true
-          branch: generated-html
+          branch: develop
           file_pattern: '*.html *.css *.js'
           push_options: '--force'
