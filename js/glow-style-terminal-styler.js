@@ -19,7 +19,7 @@ for (let i = 0; i < headings.length; i++) {
 // ex if page is: http://localhost:63342/blog/posts/unraid.html
 if (window.location.pathname === "/") {
     document.getElementById('page-path').innerText = '~'
-    document.getElementById('page-name').innerText = 'index.html'
+    document.getElementById('page-name').innerText = 'index.md'
     document.getElementById('page-host').innerText = window.location.host
 } else {
     const pathname = window.location.pathname.split('/') // ex: [ "", "blog", "posts", "unraid.html" ]
