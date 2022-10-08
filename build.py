@@ -18,6 +18,14 @@ def piece_together(body):
 """
 
     appendee = """
+<footer>
+    <div id="footer-shell">
+        <span style="color: #89982e">RVRX</span>@<span class="page-host">github.io</span> <span style="color: #89982e">~/footer</span> (<span style="color: #6d71be;">master</span>) $ <span style="color: #76b8cb">cat footer.txt</span>
+    </div>
+    <div id="main-footer">
+        <a href="https://blog.rvrx.dev">Home</a> | <a href="/about">About Blog</a>
+    </div>
+</footer>
 <script src="/js/glow-style-terminal-styler.js"></script>
 </body>
 </html>

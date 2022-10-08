@@ -63,6 +63,15 @@ header {
     margin-bottom: 10em;
 }
 
+footer {
+    position: absolute;
+    display: block;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-top: 0.075em solid rgb(85, 85, 85);
+}
+
 /* all 'a' that are not within a 'span' within a 'header' */
 *:not(header > span) > a::after{
     content: attr(href);
