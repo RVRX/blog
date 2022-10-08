@@ -1,5 +1,8 @@
 import os
 import markdown
+from datetime import datetime
+from os.path import getmtime
+
 
 
 def piece_together(body, post_list):
@@ -25,11 +28,11 @@ def piece_together(body, post_list):
 <div class="sidebar">
     <div id="sidebar-shell">
         Last login: Fri Oct  7 21:49:25 on ttys000<br>
-        <span style="color: #89982e">RVRX</span>@<span class="page-host">github.io</span> <span style="color: #89982e">~/sidebar</span> (<span style="color: #6d71be;">master</span>) $ <span style="color: #76b8cb">ls -a</span>
-        <ul>"""
+        <span style="color: #89982e">RVRX</span>@<span class="page-host">github.io</span> <span style="color: #89982e">~/sidebar</span> (<span style="color: #6d71be;">master</span>) $ <span style="color: #76b8cb">ls -l</span>
+        <div id="post-listing-ol">"""
 
     appendee_the_second = """
-        </ul>
+        </div>
     </div>
 </div>
 <footer class="footer">
@@ -63,7 +66,7 @@ with os.scandir('posts/') as entries:
     for entry in entries:
         if entry.name.endswith(".md"):
             substr = entry.name.split(".")[0]
-            post_list += '\n            <li><a href=/posts/' + substr + ".html" + '>' + substr.replace("-", " ").title() + '</a></li>'
+            post_list += '\n            <p>rvrx <span class="date">' + datetime.fromtimestamp(getmtime(entry)).strftime("%d  %b %H:%M") + '</span><br><a href=/posts/' + substr + ".html" + '>' + substr.replace("-", " ").title() + '</a></p>'
 
 with os.scandir('posts/') as entries:
     for entry in entries:

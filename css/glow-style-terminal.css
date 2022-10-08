@@ -113,8 +113,10 @@ footer {
 
 }
 
-.sidebar-ol > li {
-    margin: 2em 0;
+#post-listing-ol {
+    list-style: square;
+    font-style: italic;
+    margin-left: 1em;
 }
 
 header > span > a, header > span > a:visited {
