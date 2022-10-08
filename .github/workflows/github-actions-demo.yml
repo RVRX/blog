@@ -10,27 +10,12 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - name: Retrieve markdown files list
-        run: |
-          echo "::set-output name=FILE_LIST::$(find posts -name "*.md" | while read line; do echo [\"$line\"]\,; done | tr '\n' ' ' | sed 's/..$//')"
-        id: found_files_markdown
-      - name: Retrieve/Create html files list
-        run: |
-          echo "::set-output name=FILE_LIST::$(find posts -name "*.md" | while read line; do echo \"$line\"\,; done | tr '\n' ' ' | sed 's/md/html/g' | sed 's/..$//')"
-        id: resolved_files_html
-      - uses: "finnp/create-file-action@master"
-        env:
-          FILE_NAME: "post-index.txt"
-          FILE_DATA: "[${{ steps.resolved_files_html.outputs.FILE_LIST }}]"
       - name: Markdown-HTML (Generate HTML from MD)
-        uses: ZacJW/markdown-html-action@1.1.0
+        uses: actions/setup-python@v4.2.0
         with:
-          input_files: '[["index.md"], ${{ steps.found_files_markdown.outputs.FILE_LIST }}]'
-          output_files: '["index.html", ${{ steps.resolved_files_html.outputs.FILE_LIST }}]'
-          # TODO: Generate an "index" to show as sidebar in HTML files.
-          builtin_stylesheet: 'style.css'
-          packages: 'pymdown-extensions'
-          extensions: '["pymdownx.extra"]'
+          python-version: '3.10'
+      - run: pip install markdown
+      - run: python build.py
       - name: Git Auto Commit (Push all generated HTML)
         uses: stefanzweifel/git-auto-commit-action@v4.15.0
         with:
