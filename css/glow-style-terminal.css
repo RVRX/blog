@@ -37,30 +37,70 @@ h1 {
     display:inline;
     background-color: #5f5fff;
     color: #fffb87;
-    font-size: 1.25rem;
+    font-size: 1rem;
     padding-left: 1em;
     padding-right: 1em;
 }
 
 h2, h3, h4, h5 {
     color: #00afff;
-    font-size: 1.25rem;
+    font-size: 1rem;
+}
+
+html, body {
+    min-height: 100vh;
 }
 
 body {
-    font-size: 1.25rem;
-    margin-left: 2em;
-    margin-right: 2em;
-    margin-top: 3em;
-    max-width: 40em;
+    font-size: 1rem;
+    margin: 0;
 }
 
-header {
-    /*text-align: left; !important;*/
-    position: absolute;
+footer {
+    border-top: 0.075em solid rgb(85, 85, 85);
+    margin-bottom: 1em;
+}
+
+.body {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 0.8fr;
+    grid-template-rows: 1fr 1.5fr 0.5fr;
+    gap: 0 0;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "main main sidebar"
+    "main main sidebar"
+    "footer footer sidebar";
+}
+
+.main {
+    grid-area: main;
+    max-width: 40em;
+    /*width: 100vw;*/
+}
+
+#sidebar-shell {
+    position: sticky;
     top: 0;
-    left: 0;
-    margin-bottom: 10em;
+}
+
+.sidebar {
+    justify-self: end;
+    grid-area: sidebar;
+    border-left: 0.075em solid rgb(85, 85, 85);
+    padding-left: 0.5em;
+}
+
+.footer {
+    align-self: end;
+    grid-area: footer;
+}
+
+.generated-content {
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 2em;
+    max-width: 40em;
 }
 
 /* all 'a' that are not within a 'span' within a 'header' */
@@ -71,6 +111,12 @@ header {
     font-weight: normal;
     padding-left: 5px;
 
+}
+
+#post-listing-ol {
+    list-style: square;
+    font-style: italic;
+    margin-left: 1em;
 }
 
 header > span > a, header > span > a:visited {
