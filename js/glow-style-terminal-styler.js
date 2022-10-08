@@ -17,12 +17,19 @@ for (let i = 0; i < headings.length; i++) {
 
 // dynamic shell setup [abs top left line dude]
 // ex if page is: http://localhost:63342/blog/posts/unraid.html
-const pathname = window.location.pathname.split('/') // ex: [ "", "blog", "posts", "unraid.html" ]
-const name = pathname.pop().split('.')[0] + '.md' // "unraid.md"
-const path = pathname.join('/') // "/blog/posts"
-document.getElementById('page-path').innerText = '~' + path
-document.getElementById('page-name').innerText = name
-document.getElementById('page-host').innerText = window.location.host
+if (window.location.pathname === "/") {
+    document.getElementById('page-path').innerText = '~'
+    document.getElementById('page-name').innerText = 'index.html'
+    document.getElementById('page-host').innerText = window.location.host
+} else {
+    const pathname = window.location.pathname.split('/') // ex: [ "", "blog", "posts", "unraid.html" ]
+    const name = pathname.pop().split('.')[0] + '.md' // "unraid.md"
+    const path = pathname.join('/') // "/blog/posts"
+    document.getElementById('page-path').innerText = '~' + path
+    document.getElementById('page-name').innerText = name
+    document.getElementById('page-host').innerText = window.location.host
+
+}
 
 // set page title to that of first 'h1'
 document.title = document.getElementsByTagName('h1')[0].innerText
