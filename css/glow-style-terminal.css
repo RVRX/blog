@@ -37,18 +37,18 @@ h1 {
     display:inline;
     background-color: #5f5fff;
     color: #fffb87;
-    font-size: 1.25rem;
+    font-size: 1rem;
     padding-left: 1em;
     padding-right: 1em;
 }
 
 h2, h3, h4, h5 {
     color: #00afff;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 body {
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin-left: 2em;
     margin-right: 2em;
     margin-top: 3em;
