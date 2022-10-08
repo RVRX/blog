@@ -2,7 +2,7 @@ import os
 import markdown
 
 
-def piece_together(body):
+def piece_together(body, post_list):
     prependee = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +26,10 @@ def piece_together(body):
     <div id="sidebar-shell">
         Last login: Fri Oct  7 21:49:25 on ttys000<br>
         <span style="color: #89982e">RVRX</span>@<span class="page-host">github.io</span> <span style="color: #89982e">~/sidebar</span> (<span style="color: #6d71be;">master</span>) $ <span style="color: #76b8cb">ls -a</span>
+        <ul>"""
+
+    appendee_the_second = """
+        </ul>
     </div>
 </div>
 <footer class="footer">
@@ -41,22 +45,32 @@ def piece_together(body):
 </html>
 """
 
-    return prependee + body + appendee
+    return prependee + body + appendee + post_list + appendee_the_second
 
 
-def generate_html_from_file(path_to_file):
+def generate_html_from_file(path_to_file, post_list):
     with open(path_to_file, "r", encoding="utf-8") as input_file:
         text = input_file.read()
     html = markdown.markdown(text)
     with open(path_to_file.split(".")[0] + ".html", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:
-        output_file.write(piece_together(html))
+        output_file.write(piece_together(html, post_list=post_list))
 
+
+# BUILD POST FILES
+with os.scandir('posts/') as entries:
+    # assemble list of posts
+    post_list = ""
+    for entry in entries:
+        if entry.name.endswith(".md"):
+            substr = entry.name.split(".")[0]
+            post_list += '\n            <li><a href=/posts/' + substr + ".html" + '>' + substr.replace("-", " ").title() + '</a></li>'
+
+with os.scandir('posts/') as entries:
+    for entry in entries:
+        if entry.name.endswith(".md"):
+            print('[build]: ' + entry.name)
+            generate_html_from_file("posts/" + entry.name, post_list=post_list)
 
 # BUILD INDEX FILE
 print('[build]: index.md')
-generate_html_from_file("index.md")
-# BUILD POST FILES
-with os.scandir('posts/') as entries:
-    for entry in entries:
-        print('[build]: ' + entry.name)
-        generate_html_from_file("posts/" + entry.name)
+generate_html_from_file("index.md", post_list=post_list)
