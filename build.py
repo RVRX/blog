@@ -11,6 +11,8 @@ def piece_together(body, post_list):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dev Blog of Cole Manning (RVRX)">
+    <meta name="keywords" content="Cole Manning, Blog, RVRX, devblog, dev-blog, WPI, Worcester Polytechnic Institute">
 
     <link href="/css/glow-style-terminal.css" rel="stylesheet">
 
@@ -18,7 +20,7 @@ def piece_together(body, post_list):
 </head>
 <body class="body">
 <main class="main">
-<header><span style="color: #89982e">RVRX</span>@<span class="page-host">localhost</span> <span style="color: #89982e" id="page-path">~/blog</span> (<span style="color: #6d71be;">master</span>) $ <span style="color: #76b8cb"><a href="https://github.com/charmbracelet/glow#glow" target="_blank">glow</a> <span id="page-name">index.md</span></span></header>
+<header><a href="/"><span style="color: #89982e">RVRX</span>@<span class="page-host">localhost</span> <span style="color: #89982e" id="page-path">~/blog</span> (<span style="color: #6d71be;">master</span>)</a> $ <span style="color: #76b8cb"><a href="https://github.com/charmbracelet/glow#glow" target="_blank">glow</a> <span id="page-name">index.md</span></span></header>
 <div class="generated-content">
 """
 
@@ -27,12 +29,16 @@ def piece_together(body, post_list):
 </main>
 <div class="sidebar">
     <div id="sidebar-shell">
-        Last login: Fri Oct  7 21:49:25 on ttys000<br>
-        <span style="color: #89982e">RVRX</span>@<span class="page-host">github.io</span> <span style="color: #89982e">~/sidebar</span> (<span style="color: #6d71be;">master</span>) $ <span style="color: #76b8cb">ls -l</span>
+        <span style="color: #89982e">~/sidebar</span> $ <span style="color: #76b8cb">ls -l</span>
         <div id="post-listing-ol">"""
 
     appendee_the_second = """
         </div>
+        <aside id="heading-listing">
+            <span style="color: #89982e">~</span> $ <span style="color: #76b8cb">cd ../contents</span><br>
+            <span style="color: #89982e">~/contents</span> $ <span style="color: #76b8cb">cat headings.txt</span>
+            <div id="heading-listing-paragraph">Unable to render table of contents without JS, sorry!</div>
+        </aside>
     </div>
 </div>
 <footer class="footer">
@@ -44,6 +50,7 @@ def piece_together(body, post_list):
     </div>
 </footer>
 <script src="/js/glow-style-terminal-styler.js"></script>
+<script src="/js/table-of-contents.js"></script>
 </body>
 </html>
 """
