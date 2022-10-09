@@ -11,6 +11,8 @@ def piece_together(body, post_list):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dev Blog of Cole Manning (RVRX)">
+    <meta name="keywords" content="Cole Manning, Blog, RVRX, devblog, dev-blog, WPI, Worcester Polytechnic Institute">
 
     <link href="/css/glow-style-terminal.css" rel="stylesheet">
 
