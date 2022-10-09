@@ -61,41 +61,6 @@ footer {
     margin-bottom: 1em;
 }
 
-.body {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr 0.8fr;
-    grid-template-rows: 1fr 1.5fr 0.5fr;
-    gap: 0 0;
-    grid-auto-flow: row;
-    grid-template-areas:
-    "main main sidebar"
-    "main main sidebar"
-    "footer footer sidebar";
-}
-
-.main {
-    grid-area: main;
-    max-width: 40em;
-    /*width: 100vw;*/
-}
-
-#sidebar-shell {
-    position: sticky;
-    top: 0;
-}
-
-.sidebar {
-    justify-self: end;
-    grid-area: sidebar;
-    border-left: 0.075em solid rgb(85, 85, 85);
-    padding-left: 0.5em;
-}
-
-.footer {
-    align-self: end;
-    grid-area: footer;
-}
-
 .generated-content {
     margin-left: 2em;
     margin-right: 2em;
@@ -161,3 +126,64 @@ img {
 .lonesome-link, .lonesome-link::after {
     color: var(--solo-link);
 }
+
+
+/*Media Query*/
+@media (min-width: 39em) {
+    .body {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr 0.8fr;
+        grid-template-rows: 1fr 1.5fr 0.5fr;
+        gap: 0 0;
+        grid-auto-flow: row;
+        grid-template-areas:
+    "main main sidebar"
+    "main main sidebar"
+    "footer footer sidebar";
+    }
+
+    .main {
+        grid-area: main;
+        max-width: 40em;
+        /*width: 100vw;*/
+    }
+
+    #sidebar-shell {
+        position: sticky;
+        top: 0;
+    }
+
+    .sidebar {
+        justify-self: end;
+        grid-area: sidebar;
+        border-left: 0.075em solid rgb(85, 85, 85);
+        padding-left: 0.5em;
+    }
+
+    .footer {
+        align-self: end;
+        grid-area: footer;
+    }
+}
+
+@media (max-width: 39em) {
+
+    .body {
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
+        gap: 0 0;
+        grid-template-areas:
+    "main"
+    "sidebar"
+    "footer";
+    }
+    .main { grid-area: main; }
+    .sidebar {
+        grid-area: sidebar;
+        border-top: 0.075em solid rgb(85, 85, 85);
+    }
+    .footer { grid-area: footer; }
+}
+
