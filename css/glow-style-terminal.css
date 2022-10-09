@@ -113,6 +113,14 @@ footer {
 
 }
 
+.main > header:nth-child(1) > a:nth-child(1) {
+    color: inherit;
+}
+
+.main > header:nth-child(1) > a::after {
+    content: inherit;
+}
+
 #post-listing-ol {
     list-style: square;
     font-style: italic;
