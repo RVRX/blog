@@ -5,17 +5,25 @@ from os.path import getmtime
 
 
 
-def piece_together(body, post_list):
+def piece_together(body, post_list, page_title="RVRX", page_description="", page_image="https://blog.rvrx.dev/img/about/terminal-example.png"):
     prependee = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dev Blog of Cole Manning (RVRX)">
-    <meta name="keywords" content="Cole Manning, Blog, RVRX, devblog, dev-blog, WPI, Worcester Polytechnic Institute">
+    <meta name="keywords" content="Cole Manning, Blog, RVRX, devblog, dev-blog, WPI, Worcester Polytechnic Institute">"""
 
+    og_title = f'<meta property="og:title" content="{page_title}">'
+    og_sitename = f'<meta property="og:site_name" content="RVRX.">'
+    og_url = f'<meta property="og:url" content=https://blog.rvrx.dev>'
+    og_desc = f'<meta property="og:description" content="{page_description}">'
+    og_type = '<meta property="og:type" content="article">'
+    og_image = f'<meta property="og:image" content={page_image}>'
+    open_graph = f'\n\t{og_title}\n\t{og_sitename}\n\t{og_url}\n\t{og_desc}\n\t{og_type}\n\t{og_image}'
+
+    post_prependee = """
     <link href="/css/glow-style-terminal.css" rel="stylesheet">
-
     <title>RVRX</title>
 </head>
 <body class="body">
@@ -55,15 +63,16 @@ def piece_together(body, post_list):
 </html>
 """
 
-    return prependee + body + appendee + post_list + appendee_the_second
+    return prependee + open_graph + post_prependee + body + appendee + post_list + appendee_the_second
 
 
 def generate_html_from_file(path_to_file, post_list):
     with open(path_to_file, "r", encoding="utf-8") as input_file:
         text = input_file.read()
     html = markdown.markdown(text)
-    with open(path_to_file.split(".")[0] + ".html", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:
-        output_file.write(piece_together(html, post_list=post_list))
+    path_no_ext = path_to_file.split(".")[0]
+    with open(path_no_ext + ".html", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:
+        output_file.write(piece_together(html, post_list=post_list, page_title=path_no_ext.split("/")[-1].replace("-", " ").title()))
 
 
 # BUILD POST FILES

@@ -62,8 +62,8 @@ footer {
 }
 
 .generated-content {
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 5vw;
+    margin-right: 1vw;
     margin-top: 2em;
     max-width: 40em;
 }
@@ -130,6 +130,16 @@ img {
     color: #5e5e5e;
     font-style: italic;
 }
+
+
+/*
+ * Add padding to left and right of all sections.
+ * Can't just do body{padding: 8px}, as the border lines would not extend properly
+ */
+div.sidebar { padding-right: 8px; padding-left: 8px; }
+main.main { padding-left: 8px; }
+footer { padding-left: 8px;}
+
 
 /*JS Only Styles*/
 .lonesome-link, .lonesome-link::after {
