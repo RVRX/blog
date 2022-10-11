@@ -37,7 +37,7 @@ def piece_together(body, post_list, page_title="RVRX", page_description="", page
 </main>
 <div class="sidebar">
     <div id="sidebar-shell">
-        <span style="color: #89982e">~/sidebar</span> $ <span style="color: #76b8cb">ls -l</span>
+        <span style="color: #89982e">~/posts</span> $ <span style="color: #76b8cb">ls -l</span>
         <div id="post-listing-ol">"""
 
     appendee_the_second = """
