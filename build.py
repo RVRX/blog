@@ -1,7 +1,7 @@
 import os
 import markdown
 from datetime import datetime
-from os.path import getmtime
+from os.path import getctime
 
 
 
@@ -82,7 +82,7 @@ with os.scandir('posts/') as entries:
     for entry in entries:
         if entry.name.endswith(".md"):
             substr = entry.name.split(".")[0]
-            post_list += '\n            <p>rvrx <span class="date">' + datetime.fromtimestamp(getmtime(entry)).strftime("%d  %b %H:%M") + '</span><br><a href=/posts/' + substr + ".html" + '>' + substr.replace("-", " ").title() + '</a></p>'
+            post_list += '\n            <p>rvrx <span class="date">' + datetime.fromtimestamp(getctime(entry)).strftime("%d  %b %H:%M") + '</span><br><a href=/posts/' + substr + ".html" + '>' + substr.replace("-", " ").title() + '</a></p>'
 
 with os.scandir('posts/') as entries:
     for entry in entries:
