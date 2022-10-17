@@ -4,9 +4,8 @@ from datetime import datetime
 from os.path import getctime
 
 
-
-def piece_together(body, post_list, page_title="RVRX", page_description="", page_image="https://blog.rvrx.dev/img/about/terminal-example.png"):
-
+def piece_together(body, post_list, page_title="RVRX", page_description="",
+                   page_image="https://blog.rvrx.dev/img/about/terminal-example.png"):
     file_body = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,7 +83,9 @@ with os.scandir('posts/') as entries:
     for entry in entries:
         if entry.name.endswith(".md"):
             substr = entry.name.split(".")[0]
-            post_list += '\n            <p>rvrx <span class="date">' + datetime.fromtimestamp(getctime(entry)).strftime("%d  %b %H:%M") + '</span><br><a href=/posts/' + substr + ".html" + '>' + substr.replace("-", " ").title() + '</a></p>'
+            post_list += f"""
+            <p>rvrx <span class="date">{datetime.fromtimestamp(getctime(entry)).strftime("%d  %b %H:%M")}</span>
+            <br><a href=/posts/{substr}.html>{substr.replace("-", " ").title()}</a></p>"""
 
 with os.scandir('posts/') as entries:
     for entry in entries:
