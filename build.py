@@ -67,12 +67,17 @@ def piece_together(body, post_list, page_title="RVRX", page_description="", page
 
 
 def generate_html_from_file(path_to_file, post_list):
+    # Create HTML from MD
     with open(path_to_file, "r", encoding="utf-8") as input_file:
         text = input_file.read()
     html = markdown.markdown(text)
+    # write HTML to file
     path_no_ext = path_to_file.split(".")[0]
     with open(path_no_ext + ".html", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:
-        output_file.write(piece_together(html, post_list=post_list, page_title=path_no_ext.split("/")[-1].replace("-", " ").title()))
+        filename = path_no_ext.split("/")[-1]  # get filename from path
+        filename_no_ext = filename.split(".")[0]  # remove extension
+        filename_as_title = filename_no_ext.replace("-", " ").title()  # turn dashes to spaces, use title-case
+        output_file.write(piece_together(html, post_list=post_list, page_title=filename_as_title))
 
 
 # BUILD POST FILES
