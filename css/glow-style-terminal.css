@@ -149,6 +149,11 @@ footer { padding-left: 8px;}
 
 /*Media Query*/
 @media (min-width: 39em) {
+
+    header {
+        font-size: 1.5rem;
+    }
+
     .body {
         display: grid;
         grid-template-columns: 1fr 1.2fr 0.8fr;
@@ -163,8 +168,10 @@ footer { padding-left: 8px;}
 
     .main {
         grid-area: main;
+    }
+
+    .generated-content {
         max-width: 40em;
-        /*width: 100vw;*/
     }
 
     #sidebar-shell {
@@ -186,7 +193,12 @@ footer { padding-left: 8px;}
     }
 }
 
+/* Smaller Screens */
 @media (max-width: 39em) {
+
+    header {
+        font-size: 1.25rem;
+    }
 
     .body {
         display: grid;
