@@ -34,3 +34,12 @@ for (let i = 0; i < pageHosts.length; i++) {
 
 // set page title to that of first 'h1'
 document.title = document.getElementsByTagName('h1')[0].innerText
+
+
+// open all images in a new tab
+let images = document.images
+for (let i = 0; i < images.length; i++) {
+    images[i].addEventListener('click', function () {
+        window.open(images[i].src, '_blank');
+    })
+}

@@ -219,3 +219,8 @@ footer { padding-left: 8px;}
     .footer { grid-area: footer; }
 }
 
+
+img:hover {
+    cursor: pointer;
+}
+
