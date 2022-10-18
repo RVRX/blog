@@ -1,7 +1,6 @@
+import json
 import os
 import markdown
-from datetime import datetime
-from os.path import getctime
 
 
 def piece_together(body, post_list, page_title="RVRX", page_description="",
@@ -116,13 +115,23 @@ with open("index.html", "w", encoding="utf-8") as index_file:
 
 # BUILD POST FILES (+ append to index.html)
 with os.scandir('posts/') as entries:
+
+    f = open('posts/dates.json')
+    data = json.load(f)
+
+
     # assemble list of posts
     post_list = ""
     for entry in entries:
         if entry.name.endswith(".md"):
             substr = entry.name.split(".")[0]
+
+            listing_date = "01 Jan 1970"
+            if substr in data:
+                listing_date = data[substr]
+
             post_list += f"""
-            <p>rvrx <span class="date">{datetime.fromtimestamp(getctime(entry)).strftime("%d  %b %H:%M")}</span>
+            <p>rvrx <span class="date">{listing_date}</span>
             <br><a href=/posts/{substr}.html>{substr.replace("-", " ").title()}</a></p>"""
 
 with os.scandir('posts/') as entries:
