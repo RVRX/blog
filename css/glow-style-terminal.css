@@ -121,8 +121,15 @@ img {
     max-width: 100%;
     max-height: 75vh;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: -1rem auto 0; /* remove margin created by p::before indent hack */
+}
+
+p {
+    margin: 1rem 0;
+}
+
+p::before { /* indent hack required to keep monospace looking consistent */
+   content: "\00a0"; /* this is &nbsp; */
 }
 
 #heading-listing > ul:nth-child(2) {
