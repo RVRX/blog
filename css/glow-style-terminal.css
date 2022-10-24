@@ -132,6 +132,10 @@ p::before { /* indent hack required to keep monospace looking consistent */
    content: "\00a0"; /* this is &nbsp; */
 }
 
+li {
+    margin: 0.4rem 0;
+}
+
 #heading-listing > ul:nth-child(2) {
     margin-top: 0.25em;
 }
