@@ -151,7 +151,7 @@ footer { padding-left: 8px;}
 
 
 /*Media Query*/
-@media (min-width: 39em) {
+@media (min-width: 51em) {
 
     header {
         font-size: 1.5rem;
@@ -197,7 +197,7 @@ footer { padding-left: 8px;}
 }
 
 /* Smaller Screens */
-@media (max-width: 39em) {
+@media (max-width: 51em) {
 
     header {
         font-size: 1.25rem;
