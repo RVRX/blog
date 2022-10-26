@@ -117,7 +117,7 @@ _Mid to Late August_
 
 After dealing with the slow transfer of some of my larger files, I decided I wanted to speed things up a notch and take a stab at some networking tech. With my primary goal being to speed up connection between my desktop and my server, I set out on some research. I knew my current desktop computer had a 2.5G ethernet NIC and that I could get some sort of networking expansion card to fill one of the PCI-E lanes in my NAS. I started by looking around at 10G switches but was surprised to see how expensive they were compared to a regular 1 gig switch, even the budget/consumer-friendly 2.5G options. All leaning over the $150 range for equipment to _connect_ some >1G devices. I asked a coworker at my IT job for some advice, and he directed me to [fs.com](https://www.fs.com/), and recommended I skip the switch altogether and just get a dual-NIC card to directly connect my PC to my server and from each to my router. While good advice to save money, I also wanted something I could incorporate more machines into – something more long term, so I kept looking at switch options. I had almost settled on the cheapest 2.5G switch I could find on AliExpress and Taobao, when this coworker gave me a dual-NIC SFP+ card and told me it could disappear from the office, which I gladly accepted. I admit I didn't really know what SFP was and had to google around for a bit to figure out what I needed to get a setup up and running with this. Of course, SFP+ switches are even more expensive than your regular RJ45 ones, but luckily the DIY home networking community seems to pretty unanimously love and recommend the [Mikrotik CRS305-1G-4S+IN](https://mikrotik.com/product/crs305_1g_4s_in#fndtn-specifications). At $160 it was practically the single-most cheapest SFP+ switch on the market, all-the-while offering solid I/O with 4 SFP+ ports and 1GbE uplink. The only immediate downside was the lack of 2.5G negotiation. However, there exists a quick fix for this in the form of an SFP+ module – the [S+RJ10](https://mikrotik.com/product/s_rj10#fndtn-downloads) – that can pull some special tricks to negotiate down to 2.5G. The caveat being it is intended for actively cooled switches, which the CRS305 is not. This is only a constraint due to how hot the module will get without fans to cool it off. Well, It just so happened the ventilation holes atop the switch lined up perfectly with a 20mm fan, so I bought [one](https://noctua.at/en/nf-a4x20-flx) and "attached" it with some anti-vibration rubber fan mounts and added a small grill atop the fan to make it seem slightly harder for the blades to snag a stray cable. I used the USB port on my router to supply power via a USB to 3-pin fan adapter
 
-[//]: # (TODO INSERT PHOTO!)
+![](../img/unraid/fan_mount.jpg)
 
 It would probably fall right off if shaken or flipped, but it does the trick.
 
@@ -144,13 +144,17 @@ Googling around in despair I find that almost everyone everywhere seems to eithe
 
 ![hdd pcb](../img/unraid/hdd_pcb.jpg)
 
-Well I borrowed a fancy-schmancy multimeter from a lab at my Uni and fumbled around till I found a page in the manual online that sounded like what I was looking for.
+Well I borrowed a fancy-schmancy multimeter from a lab at my Uni and fumbled around till I found a page in the manual online that sounded like what I was looking for:
 
 ![testing meter](../img/unraid/testing_meter.png)
 
-Well sadly I only got a single beep: the diode had not tripped. Meaning the over-voltage was probably sent nowhere good and all my data was housed on expensive bricks.
+I put the ends of the multimeter on what some random Redditors told me was the correct diodes, and sadly I only got a single beep: the diode had not shorted. Meaning the over-voltage was probably sent nowhere good and all my data was housed on expensive bricks.
 
-I contacted some repair and recovery shops, but the lowest quote I got was $750 as the best case scenario for my smallest (3TB) drive, which was not really within a reasonable budget for me. Even my SSD used for caching data was toast. In fact, it was slightly more toast than the hard drives in the sense that it had clearly burned up in some parts and made some computer chip toast.
+I contacted some repair and recovery shops, but the lowest quote I got was $750 as the best case scenario for my smallest (3TB) drive, which was not really within a reasonable budget for me. Even my cache SSD toast:
+
+![](../img/unraid/ssd_burnt.jpg)
+
+In fact, it was slightly more toast than the hard drives in the sense that it had clearly burned up in some parts and made some computer chip toast.
 
 
 ## Rebuilding
