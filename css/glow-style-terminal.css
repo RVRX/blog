@@ -189,6 +189,10 @@ footer { padding-left: 8px;}
         position: sticky;
         top: 0;
         padding-left: 8px;
+
+        /*allow sticky item to scroll when too long*/
+        max-height: 100vh;
+        overflow-y: auto;
     }
 
     .sidebar {
