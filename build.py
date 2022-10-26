@@ -76,7 +76,7 @@ def generate_html_from_file(path_to_file, post_list, add_to_index=True):
     # if flagged, add this post to index
     if add_to_index:
         with open("index.html", "a", encoding="utf-8", errors="xmlcharrefreplace") as index_html:
-            index_html.write("<br><br><br><br><br><br><br><br><br><br>" + html)
+            index_html.write('<div class="index-listing">' + html + '</div>')
 
 
 # BUILD index.html Header + index.md content
