@@ -27,19 +27,19 @@
 <h3>Why?</h3>
 <p>Last summer I decided I wanted to put together a NAS. Why? Well…</p>
 <ol>
-<li>Thanks to my obsessive usage of <a href="https://www.nvidia.com/en-us/geforce/geforce-experience/shadowplay/">Nvidia Shadow Replay</a>, I had <a href="https://skyborne.net/movie">eight years worth of gameplay and Mumble voice-comms</a> totaling around 800-some-odd gigabytes that was only getting bigger. I wanted to move these files somewhere slightly safe, and I figured some sort of data redundancy (via RIAD) was the easiest way to protect my data while still keeping it live and ready for new additions.</li>
-<li>Was spending more time off my LAN and wanted easier access to my files, but wasn't about to increase my electricity bill by 10x by leaving my desktop on 24/7 to remote into.</li>
+<li>Thanks to my obsessive usage of <a href="https://www.nvidia.com/en-us/geforce/geforce-experience/shadowplay/">Nvidia Shadow Replay</a>, I had <a href="https://skyborne.net/movie">eight years worth of gameplay and Mumble voice-comms</a> totaling around 800-some-odd gigabytes that was only getting bigger. I wanted to move these files somewhere slightly safer, and I figured some sort of data redundancy (via RAID) was the easiest way to protect my data while still keeping it live and ready for new additions.</li>
+<li>I was spending more time off my LAN and wanted easier access to my files, but wasn't about to increase my electricity bill by 10x by leaving my desktop on 24/7 to remote into.</li>
 <li>Found myself spending more time transferring large files between my laptop and desktop machines and figured I could do with some sort of centralization for my files.</li>
 <li>But mainly; I had just received my first direct deposit from a job that paid above MA minimum wage, and knew I had to act fast before I felt obligated to put it towards my student loans.</li>
 </ol>
-<p><em>Or at least those are the reasons I used to justify opening my wallet.</em></p>
+<p>Or at least those are the reasons I used to justify opening my wallet 🤷</p>
 <h3>The Hardware</h3>
 <p>Off the bat I didn't want to go for any pre-built solution, as that just felt kinda lame and uninspired. It would have made this post a lot shorter and saved me a lot of future stress – and I guess therefore learning experiences –, so like, what would the point be?</p>
-<p>Starting out with the hardware I wanted to use, I figured I would put the old shell of my gaming rig to use. The case was the now discontinued Corsair Air 240, a small (maybe too small, I was never able to fit the acrylic side panel on because of my GPU's heat pipe) micro-ATX cube case. A bit of a quirky case, but I certainly prefer it over a standard tower case. It's also the perfect dimensions to fit onto [into?] a shelf in my living room while still leaving room for airflow.</p>
+<p>Starting out with the hardware I wanted to use, I figured I would put the old shell of my gaming rig to use. The case is the Corsair Air 240, a small (maybe too small, I was never able to fit the acrylic side panel on because of my GPU's heat pipe &#128517;) micro-ATX cube case. A bit quirky, but I certainly prefer it over a standard tower case. It's also the perfect dimensions to fit onto [into?] a shelf in my living room while still leaving room for airflow.</p>
 <p><img alt="Corsair Air 240" src="../img/unraid/corsair_air_240.png" /></p>
 <p>The circa 2014 case has long since been discontinued, but I have recently come across its bigger sibling (the 540) sold by Lambda Labs for some of their "ML workstations" (They seem to love how easily the magnetic Corsair log can be replaced with their own).</p>
-<p>The case still had an <a href="https://www.asrock.com/mb/Intel/H81M-HDS/">ASRock H81M-HDS</a> motherboard and <em>i5-4690K</em> I had left in it, along with my old coil-whining GTX 970. I popped the 970 out as I didn't want to pay for all that extra electricity, and I figured the CPU could handle some light transcode loads on its own (it can).</p>
-<p>The ASRock board is definitely in the 'budget' class and comes with an entertaining listing of "unique features" (half are Windows programs, the other half are pretty standard motherboard features) that take up a few pages in the manual:</p>
+<p>The case still had an <a href="https://www.asrock.com/mb/Intel/H81M-HDS/">ASRock H81M-HDS</a> motherboard and <em>i5-4690K</em> I had left in it, along with my old coil-whining GTX 970. I popped the 970 out as I didn't want to pay for all that extra electricity and I figured the CPU could handle some light transcode loads on its own (it can).</p>
+<p>The ASRock board is definitely in the 'budget' class and comes with an entertaining listing of "unique features" to match (half are Windows programs, the other half are pretty standard motherboard features):</p>
 <ul>
 <li><strong><em>ASRock APP Shop</em></strong> (Easily install Norton by accident while you try to update your BIOS)</li>
 <li><strong><em>ASRock A-Tuning</em></strong> (Software to easily over-overclock your system)</li>
@@ -66,11 +66,11 @@
 <li>2 ports each for SATA2 &amp; SATA3, not ideal, but I guess it doesn't matter for HDDs.</li>
 <li>1 PCIe x16, 1 PCIe x1. Really wish it just had two x16 lanes, or a slightly bigger than x1 lane.</li>
 </ul>
-<p>The CPU cooler was missing a fan blade (these things happen when you are missing a side panel), but never troubled me when I was gaming on it, so I figured I'd keep it  in.</p>
-<p><em><strong>But yeah, TL;DR I took my old gaming pc, and removed the graphics and Wi-Fi cards, and called it a server.</strong></em></p>
+<p>The CPU cooler is missing a fan blade (these things happen when you are missing a side panel), but never troubled me when I was gaming on it, so I figured I'd keep it  in. And hey, you can't tell the difference once it's spun up &#129323;</p>
+<p><em><strong>But yeah, TL;DR I took my old gaming pc, removed the graphics and Wi-Fi cards, and called it a server.</strong></em></p>
 <h3>The OS</h3>
 <p><img alt="OS Planning Notes" src="../img/unraid/planning-os.jpg" /></p>
-<p>The main two contenders were TrueNAS and Unraid, but a quick glance was had at some Raspberry Pi based NAS software. However, a quick look at this document and the astute among us (sarcasm + ඞ) might recognize that the small column in the top right consists of the different options and the other 99% (joke) of the page is about the inner workings of Unraid. So, yeah. I pretty quickly fell in love with Unraid's feature set. Mainly:</p>
+<p>The main two contenders were TrueNAS and Unraid, but a quick glance was had at some Raspberry Pi based NAS software. However, a quick look at this document and the astute among us (sarcasm + &#3486;) might recognize that the small column in the top right consists of the different options and the other 99% (joke) of the page is about the inner workings of Unraid. So, yeah. I pretty quickly fell in love with Unraid's feature set. Mainly:</p>
 <ul>
 <li>Not true RAID, so any-old hard drives of random sets of capacities can be used (more budget friendly).</li>
 <li>Docker. Docker has always been – and honestly, still is – something that I feel I've never truly gotten the hang of, despite using it all the time. I hoped that using a system that relied on docker containers for its applets would teach me more about the fundamentals of docker and get me up to speed with some of the docker wizards I see online.</li>
@@ -81,10 +81,14 @@
 <h3>The USB Creator Tool, a Tale of Woe</h3>
 <p>Starting with the <a href="https://wiki.unraid.net/Articles/Getting_Started">Getting Started</a> article. It tells me to check that my hardware is compatible. Looks like I need a flash drive that is "2GB or larger". I got my trusty Corsair Flash Voyager Slider 32GB, I'm sure that will work just great! I pulled up the official USB Creator Tool and get to flashing the OS onto the drive. It Hangs.</p>
 <p>Okay, further research on the forums tells me that USB 3.0 drives are not well-supported.</p>
-<p><img alt="usb_3_support" src="../img/unraid/usb_3_support.png" />
-Ok weird, but sure. I'll pop in one of my random generic USB 2.0 drives. The flash tool doesn't recognize it at all. I tried reformatting the drive and still no luck. <a href="https://www.reddit.com/r/unRAID/comments/fmrngk/unraid_usb_creator_cant_find_usb/">This</a> reddit thread suggests I try the manual installation. Ok sure. I did that and plugged it into my server. Got a <a href="https://www.reddit.com/r/unRAID/comments/fmrngk/unraid_usb_creator_cant_find_usb/">new error</a>. I guess my drive is corrupted? Ok try another drive with the USB tool. It doesn't see it. I decided to try it on my Mac with a USB-A to C adapter. It shows up, formats, and boots unraid! Alright, it took me a couple nights, a handful of flash drive candidates, and two computers to get there, but it's working now, and I'm in the OS.</p>
-<p><img alt="My Firefox history showing a lot of searches for USB issues in unraid" src="../img/unraid/usb_firefox_history.png" />
-So not a great start, but I'm happy its up and working.</p>
+<p><img alt="usb_3_support" src="../img/unraid/usb_3_support.png" /></p>
+<p>Ok weird, but sure. I'll pop in one of my random generic USB 2.0 drives. The flash tool doesn't recognize it at all. I tried reformatting the drive and still no luck. <a href="https://www.reddit.com/r/unRAID/comments/fmrngk/unraid_usb_creator_cant_find_usb/">This</a> reddit thread suggests I try the manual installation. Ok sure. I did that and plugged it into my server. Got a <a href="https://www.reddit.com/r/unRAID/comments/fmrngk/unraid_usb_creator_cant_find_usb/">new error</a>. I guess my drive is corrupted? Ok try another drive with the USB tool. It doesn't see it. I decided to try it on my Mac with a USB-A to C adapter. It shows up, formats, and boots unraid! Alright, it took me a couple nights, a handful of flash drive candidates, and two computers to get there, but it's working now, and I'm in the OS.</p>
+<p><img alt="My Firefox history showing a lot of searches for USB issues in unraid" src="../img/unraid/usb_firefox_history.png" /></p>
+<p>So not a great start, but I'm happy its up and working.</p>
+<h3>Setting up the "NAS" Elements</h3>
+<p>Well, not much to say here. Following <a href="https://wiki.unraid.net/Articles/Getting_Started#Initial_Setup">the guides</a> gets you where you need to be with limited issue. </p>
+<p>I'll be skimming over the fact that I tried the trial version before upgrading to the full version, which I highly recommend anyone trying Unraid does. </p>
+<p>You can tell Unraid is first and foremost a NAS with the way that this process is one of the few that you don't need to google around and watch a SpaceInvaderOne tutorial to figure out lol.</p>
 <h3>Docker in Unraid</h3>
 <p>So Docker in Unraid isn't all I thought it would be.
 First off, adding a docker container is done through the Community Applications (CA) extension.
