@@ -79,13 +79,12 @@ Ok weird, but sure. I'll pop in one of my random generic USB 2.0 drives. The fla
 
 ![My Firefox history showing a lot of searches for USB issues in unraid](../img/unraid/usb_firefox_history.png)
 
-So not a great start, but I'm happy its up and working.
+So not a great start, but I'm happy its up and working, though the documentation and overall support for this process could certainly be improved.
 
-
-[//]: # (TODO: Can't just jump right to Docker in unraid lol)
 
 ### Setting up the "NAS" Elements
-Well, not much to say here. Following [the guides](https://wiki.unraid.net/Articles/Getting_Started#Initial_Setup) gets you where you need to be with limited issue. 
+Well, not much to say here, this process being one of the few self-explanatory workflows in the OS. Following [the guides](https://wiki.unraid.net/Articles/Getting_Started#Initial_Setup) gets you where you need to be with limited issue.
+In brief, you add your drives to the "array", start them up (which might require you to wait for formatting), then add a share (SMB and/or NFS), and give a user access.
 
 I'll be skimming over the fact that I tried the trial version before upgrading to the full version, which I highly recommend anyone trying Unraid does. 
 
@@ -116,11 +115,11 @@ This whole experience made me realize the audience for unraid is probably those 
 ## HotDiskDrives
 _July_
 
-During the hot summer months unraid was sending me 20-some-odd hard drive temperature warnings a day alerting me of over 60deg. The Air 240 is a dual chamber design, keeping airflow on the PSU and disk side fully separate from the MOBO side. I considered buying [this 3D printed fan mount](https://archive.ph/OWwhN) to replace the HDD cage cover.
+During the hot summer months unraid was sending me 20-some-odd temperature warnings a day alerting me of over 60deg temps on all my hard disks. I was suprised at first but realized that because the Air 240 has a dual chamber design, it keeps airflow on the PSU and disk side fully separate from the MOBO side, and well, I had no fans on the disk side. Apparently I wasn't the only person having these issues as I stumbled upon [this 3D printed fan mount](https://archive.ph/OWwhN) to replace the HDD cage cover.
 
 ![3D Printed Cage](../img/unraid/3d-printed-cage.jpg)
 
-Though, ultimately I decided I could just do the equivalent myself and glued a fan grill to the rear and attached the fan to that.
+It is a little overpriced after shipping for such a simple 3D print, so ultimately I decided I could just do the equivalent myself and glued a fan grill to the rear and attached a fan to that.
 
 ![image3](../img/unraid/image3.jpg)
 
@@ -152,7 +151,7 @@ How I would ever know that is a mystery. When I mentioned this to friends only a
 
 Well this wasn't good lol.
 
-Googling around in despair I find that almost everyone everywhere seems to either reference or copy/paste their answer to the "I used the wrong PSU cable" problem from [this hddoracle.com thread](https://archive.ph/8giHG). So to sum it up there is a Transient Voltage Suppression (TVS) diode on the inner-side of the exposed PCB on the back of the drive whose job is [includes] to prevent overvoltages from making it to the inner-workings of the drive by short-circuiting itself out.
+Googling around in despair I find that almost everyone everywhere seems to either reference or copy/paste their answer to the "I used the wrong PSU cable" problem from <a href="https://archive.ph/8giHG" target="_blank">this hddoracle.com thread</a>. So to sum it up there is a Transient Voltage Suppression (TVS) diode on the inner-side of the exposed PCB on the back of the drive whose job is [includes] to prevent overvoltages from making it to the inner-workings of the drive by short-circuiting itself out.
 
 ![hdd pcb](../img/unraid/hdd_pcb.jpg)
 
@@ -179,3 +178,15 @@ As for lessons learned:
 * Yes, it might be too expensive to back everything up. Doesn't mean it is too expensive to back anything up.
 * SATA Power doesn't make much sense on the PSU side, so don't mix cables
 * Unraid lies in a weird in-between of not requiring much technical skills, until you want to step even the slightest out of bounds, and it becomes a contrived mess. Maybe consider TrueNAS for the servers that lean more Homelab than NAS.
+
+<br><br><br><br>
+**UPDATE**:
+After writing this, I've done a few upgrades to the setup:
+
+
+* Added a 815W <a href="https://www.amazon.com/gp/product/B0BCN5JH25/" target="_blank">CyberPower UPS</a>
+* Woke up early and bought a <a href="https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router" target="_blank">Dream Router</a> before it was bought up by bots. Still took me a few months waiting for Discord stock notifications before I landed it.
+
+![](../img/unraid/current_setup.jpg)
+
+![](../img/unraid/current_setup_ups.jpg)
