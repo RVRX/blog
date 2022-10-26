@@ -78,8 +78,14 @@ function buildTableOfContentsFromHeadings() {
 }
 
 window.addEventListener("load", (event) => {
-  buildTableOfContentsFromHeadings();
-  const foo = document.getElementById('heading-listing-paragraph');
-  foo.innerText = "Contents:"
-  foo.removeAttribute('id');
+  if (window.location.pathname.split("/").pop() !== "index.html") {
+    buildTableOfContentsFromHeadings();
+    const foo = document.getElementById('heading-listing-paragraph');
+    foo.innerText = "Contents:"
+    foo.removeAttribute('id');
+  } else {
+    const foo = document.getElementById('heading-listing');
+    foo.remove();
+  }
+
 });
