@@ -3,6 +3,17 @@ import os
 import markdown
 
 
+google_header = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FMR0C9R487"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FMR0C9R487');
+</script>
+"""
+
 def piece_together(body, post_list, page_title="RVRX", page_description="",
                    page_image="https://blog.rvrx.dev/img/about/terminal-example.png"):
     file_body = f"""<!DOCTYPE html>
@@ -23,7 +34,7 @@ def piece_together(body, post_list, page_title="RVRX", page_description="",
     <link href="/css/glow-style-terminal.css" rel="stylesheet">
     <title>{page_title}</title>
 </head>
-
+{google_header}
 <body class="body">
 <main class="main">
 <header><a href="/"><span style="color: #89982e">RVRX</span>@<span class="page-host">localhost</span> <span style="color: #89982e" id="page-path">~/blog</span> (<span style="color: #6d71be;">master</span>)</a> $ <span style="color: #76b8cb"><a href="https://github.com/charmbracelet/glow#glow" target="_blank">glow</a> <span id="page-name">index.md</span></span></header>
@@ -82,7 +93,7 @@ def generate_html_from_file(path_to_file, post_list, add_to_index=True):
 # BUILD index.html Header + index.md content
 # todo, when building the posts, also start to assemble the index file, slowly appending to it adding new body text
 with open("index.html", "w", encoding="utf-8") as index_file:
-    index_header_HTML = """<!DOCTYPE html>
+    index_header_HTML = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -100,7 +111,7 @@ with open("index.html", "w", encoding="utf-8") as index_file:
     <link href="/css/glow-style-terminal.css" rel="stylesheet">
     <title>RVRX.</title>
 </head>
-
+{google_header}
 <body class="body">
 <main class="main">
 <header><a href="/"><span style="color: #89982e">RVRX</span>@<span class="page-host">localhost</span> <span style="color: #89982e" id="page-path">~/blog</span> (<span style="color: #6d71be;">master</span>)</a> $ <span style="color: #76b8cb"><a href="https://github.com/charmbracelet/glow#glow" target="_blank">glow</a> <span id="page-name">index.md</span></span></header>
