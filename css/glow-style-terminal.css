@@ -231,6 +231,12 @@ footer { padding-left: 8px;}
     .footer { grid-area: footer; }
 }
 
+main {
+    max-width: 100vw;
+    overflow: auto;
+    overflow-wrap: break-word;
+}
+
 
 img:hover {
     cursor: pointer;
