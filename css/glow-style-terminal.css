@@ -169,8 +169,8 @@ footer { padding-left: 8px;}
 
     .body {
       display: grid;
-      grid-template-columns: auto auto;
-      grid-template-rows: min-content min-content;
+      grid-template-columns: 1.75fr 1fr;
+      grid-template-rows: max-content min-content;
       gap: 0 0;
       grid-template-areas:
         "main sidebar"
