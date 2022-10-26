@@ -149,7 +149,7 @@ li {
  * Add padding to left and right of all sections.
  * Can't just do body{padding: 8px}, as the border lines would not extend properly
  */
-div.sidebar { padding-right: 8px; padding-left: 8px; width: calc(100% - 8px - 8px); }
+div.sidebar { padding-right: 8px; padding-left: 8px; width: calc(100% - 8px - 8px); max-width: 35vw }
 main.main { padding-left: 8px; }
 footer { padding-left: 8px;}
 
@@ -169,7 +169,7 @@ footer { padding-left: 8px;}
 
     .body {
       display: grid;
-      grid-template-columns: 1.75fr 1fr;
+      grid-template-columns: 1.75fr auto;
       grid-template-rows: max-content min-content;
       gap: 0 0;
       grid-template-areas:
