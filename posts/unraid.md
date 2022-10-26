@@ -24,7 +24,7 @@ The circa 2014 case has long since been discontinued, but I have recently come a
 
 The case still had an [ASRock H81M-HDS](https://www.asrock.com/mb/Intel/H81M-HDS/) motherboard and _i5-4690K_ I had left in it, along with my old coil-whining GTX 970. I popped the 970 out as I didn't want to pay for all that extra electricity, and I figured the CPU could handle some light transcode loads on its own (it can).
 
-The ASRock board is definitely in the ‘budget' class and comes with an entertaining listing of "unique features" (half are Windows programs, the other half are pretty standard motherboard features) that take up a few pages in the manual:
+The ASRock board is definitely in the 'budget' class and comes with an entertaining listing of "unique features" (half are Windows programs, the other half are pretty standard motherboard features) that take up a few pages in the manual:
 
 - **_ASRock APP Shop_** (Easily install Norton by accident while you try to update your BIOS)
 - **_ASRock A-Tuning_** (Software to easily over-overclock your system)
@@ -36,7 +36,7 @@ The ASRock board is definitely in the ‘budget' class and comes with an enterta
 - **_ASRock Crash-less BIOS_** (lmao)
 - **_ASRock OMG_** (Parental management of ethernet)
 - **_ASRock Internet Flash_** (Common feature these days; flash the BIOS from ASRock server)
-- **_ASRock System Browser_** (BIOS feature; you can see what SATA drives you have connected…)
+- **_ASRock System Browser_** (BIOS feature; you can see what SATA drives you have connected...)
 - **_ASRock UEFI Tech Service_** (An email you can contact)
 - **_ASRock Dehumidifier_** (Turns on fans when PC is sleeping to dehumidify the MOBO??)
 - **_ASRock Easy Driver Installer_** (ok.)
@@ -81,26 +81,26 @@ So not a great start, but I'm happy its up and working.
 So Docker in Unraid isn't all I thought it would be.
 First off, adding a docker container is done through the Community Applications (CA) extension.
 From my understanding this was a user built extension that was recently merged [kinda] into Unraid (an interesting pattern I see with a lot of Unraid features) in release 6.10.
-I say ‘kinda' as they include the button for it in their UI by default, but will prompt you to download the external plugin if you don't already have it installed. CA is definitely a key part of Unraid – so much so that they have had a [dedicated page](https://unraid.net/community/apps) for it on their site since at least Oct 2020 ([archive](https://web.archive.org/web/20201218234535/https://unraid.net/community/apps)), and I'd say it's been the de facto Docker installer for Unraid since well before then. Every tutorial you find (even the official ones!) will point you there first.
+I say 'kinda' as they include the button for it in their UI by default, but will prompt you to download the external plugin if you don't already have it installed. CA is definitely a key part of Unraid – so much so that they have had a [dedicated page](https://unraid.net/community/apps) for it on their site since at least Oct 2020 ([archive](https://web.archive.org/web/20201218234535/https://unraid.net/community/apps)), and I'd say it's been the de facto Docker installer for Unraid since well before then. Every tutorial you find (even the official ones!) will point you there first.
 
 Why is it loved so much? Well, the actual Unraid manager for docker isn't all that great:
 ![add docker container](../img/unraid/add_container.png)
 
-The template dropdown by default includes Plex, Sync, sysdream, and UnraidNet. It will appear more populated once you setup CA, and install some apps from there.
+The template dropdown by default includes Plex, Sync, sysdream, and UnraidNet. It will appear more populated once you set up CA, and install some apps from there.
 ![docker templates](../img/unraid/docker_templates.png)
 
-As I'm about to complain about how hard this interface is to use, I just came across this line in the [official Unraid Docker documentation](https://wiki.unraid.net/Manual/Docker_Management#Adding_Applications_as_Containers); "**This method [the built-in docker system] is now deprecated and the recommended way to add all containers is via Community Applications**". So now I get to shift my complaint from 'it is hard to install your own Docker apps,' to 'Unraid _does not officially support_ docker natively'. Well I guess they technically support it natively, as the system has Docker installed and kept up to date, but they don't support it via the GUI without 3rd party tools. So now support for Dockerization has moved off LimeTech's plate and onto that of this [157 page forum thread](https://forums.unraid.net/topic/38582-plug-in-community-applications/), and support for specific containers to [this sub-forum](https://forums.unraid.net/forum/47-docker-containers/).
+As I'm about to complain about how hard this interface is to use, I just came across this line in the [official Unraid Docker documentation](https://wiki.unraid.net/Manual/Docker_Management#Adding_Applications_as_Containers); "**This method [the built-in docker system] is now deprecated and the recommended way to add all containers is via Community Applications**". So now I get to shift my complaint from 'it is hard to install your own Docker apps,' to 'Unraid _does not officially support_ docker natively'. Well I guess they technically support it natively, as the system has Docker installed and kept up to date, but they don't support it via the GUI without 3rd party tools. So now support for Dockerization has moved off LimeTech's plate and onto that of this [157-page forum thread](https://forums.unraid.net/topic/38582-plug-in-community-applications/), and support for specific containers to [this sub-forum](https://forums.unraid.net/forum/47-docker-containers/).
 
-This is a trend I see often with Unraid. Having an issue? Dig through this long forum thread and try to find the most up to date advice for your problem. Their own documentation even links to these forum threads in places, telling you they are sources of truth for a particular feature set or fix.
+This is a trend I see often with Unraid. Having an issue? Dig through this long forum thread and try to find the most up-to-date advice for your problem. Their own documentation even links to these forum threads in places, telling you they are sources of truth for a particular feature set or fix.
 
 So when you want to add a container that is not included in CA you can either use this deprecated Docker interface, or create an [XML template for CA](https://wiki.unraid.net/DockerTemplateSchema). This immediately adds a strong learning curve for what translates to a `docker run` with an argument or two.
 
-This whole experience made me realize the audience for unraid is probably those who want a quick NAS setup, with maybe a few curated applications, and not any more ‘advanced' users. Even many basic tasks you would want to run on the command line involve installing the "nerdpack tools" plugin.
+This whole experience made me realize the audience for unraid is probably those who want a quick NAS setup, with maybe a few curated applications, and not anymore 'advanced' users. Even many basic tasks you would want to run on the command line involve installing the "nerdpack tools" plugin.
 
 ## HotDiskDrives
 _July_
 
-During the hot summer months unraid was sending me 20-some-odd hard drive temperature warnings a daym alerting me of over 60deg. The Air 240 is a dual chamber design, keeping airflow on the PSU and disk side fully separate from the MOBO side. I considered buying [this 3D printed fan mount](https://archive.ph/OWwhN) to replace the HDD cage cover.
+During the hot summer months unraid was sending me 20-some-odd hard drive temperature warnings a day alerting me of over 60deg. The Air 240 is a dual chamber design, keeping airflow on the PSU and disk side fully separate from the MOBO side. I considered buying [this 3D printed fan mount](https://archive.ph/OWwhN) to replace the HDD cage cover.
 ![3D Printed Cage](../img/unraid/3d-printed-cage.jpg)
 
 Though, ultimately I decided I could just do the equivalent myself and glued a fan grill to the rear and attached the fan to that.
@@ -116,12 +116,12 @@ After dealing with the slow transfer of some of my larger files, I decided I wan
 It would probably fall right off if shaken or flipped, but it does the trick.
 
 ## The Final Upgrade: PSU
-The last thing I wanted to do for the near future for the server was to upgrade its power supply. It was currently running a seven year old bronze rated Corsair PSU that I was never super comfortable running all my valuable data off of. So I shopped around (opened PC part-picker, selected all 80+ Gold and above ratings, around 500-700 Watts) and decided on the 650W Platinum rated EVGA SuperNOVA 650 P2. Discounted on the manufacturer's website for $63 total, I was surprised how low it was below its usual $110+ price range. 
+The last thing I wanted to do for the near future for the server was to upgrade its power supply. It was currently running a seven-year-old bronze rated Corsair PSU that I was never super comfortable running all my valuable data off of. So I shopped around (opened PC part-picker, selected all 80+ Gold and above ratings, around 500-700 Watts) and decided on the 650W Platinum rated EVGA SuperNOVA 650 P2. Discounted on the manufacturer's website for $63 total, I was surprised how low it was below its usual $110+ price range. 
 ![psu order](../img/unraid/psu-order.png)
 
-When the PSU came I got right to plugging it in, replacing the dusty old PSU with this new one. Coming in at a surprising full inch or so bigger than the previous power supply, but it fit just fine. Quick and easy install plugged it in and turned it on. I see the OS boot just fine so I go off and eat dinner. I come back and go to start the array and am surprised to see none of my HDDs, nor my cache SSD are recognized, with unRAID telling me there is "no devices" in the drive selection dropdown.
+When the PSU came I got right to plugging it in, replacing the dusty old PSU with this new one. Coming in at a surprising full inch or so bigger than the previous power supply, but it fit just fine. Quick and easy installation, plugged it in and turned it on. I see the OS boot just fine, so I go off and eat dinner. I come back and go to start the array and am surprised to see none of my HDDs, nor my cache SSD are recognized, with unRAID telling me there is "no devices" in the drive selection dropdown.
 
-I decided to replace the SATA Power cable and I noticed something not quite that cool. The pin-outs are different. The cables look the exact same from anywhere other than the power inside of the power supply end (though one is certainly more dusty than another). Turns out ([source](https://superuser.com/questions/1715077/new-psu-not-providing-power-to-hard-drives)) Corsair does this:
+I decided to replace the SATA Power cable and I noticed something not quite that cool. The pin-outs are different. The cables look the exact same from anywhere other than the tiny metallic pin-outs inside the power supply end (though one is certainly more dusty than another). Turns out ([source](https://superuser.com/questions/1715077/new-psu-not-providing-power-to-hard-drives)) Corsair does this:
 ![corsair psu pinout](../img/unraid/corsair_psu.jpg)
 
 While EVGA does this:
@@ -138,9 +138,9 @@ Well I borrowed a fancy-schmancy multimeter from a lab at my Uni and fumbled aro
 
 ![testing meter](../img/unraid/testing_meter.png)
 
-Well sadly I only got a single beep: the diode had not tripped. Meaning the overvoltage was probably sent nowhere good and all my data was housed on expensive bricks.
+Well sadly I only got a single beep: the diode had not tripped. Meaning the over-voltage was probably sent nowhere good and all my data was housed on expensive bricks.
 
-I contacted some repair and recovery shops, but the lowest quote I got was $750 as a best case scenario for my smallest (3TB) drive, which was not really within a reasonable budget for me. Even my SSD used for caching data was toast. In fact it was slightly more toast then the hard drives in the sense that it had clearly burned up in some parts and made some computer chip toast.
+I contacted some repair and recovery shops, but the lowest quote I got was $750 as the best case scenario for my smallest (3TB) drive, which was not really within a reasonable budget for me. Even my SSD used for caching data was toast. In fact, it was slightly more toast than the hard drives in the sense that it had clearly burned up in some parts and made some computer chip toast.
 
 
 ## Rebuilding
@@ -150,6 +150,6 @@ The biggest annoyance was really just the dollar cost to get back up and running
 
 As for lessons learned:
 
-* Yes, it might be too expensive to back everything up. Doesn't mean its too expensive to back anything up.
+* Yes, it might be too expensive to back everything up. Doesn't mean it is too expensive to back anything up.
 * SATA Power doesn't make much sense on the PSU side, so don't mix cables
-* Unraid lies in a weird in-between of not requiring much technical skills, until you want to step even the slightest out of bounds and it becomes a contrived mess. Maybe consider TrueNAS for the servers that lean more Homelab than NAS.
+* Unraid lies in a weird in-between of not requiring much technical skills, until you want to step even the slightest out of bounds, and it becomes a contrived mess. Maybe consider TrueNAS for the servers that lean more Homelab than NAS.
