@@ -164,7 +164,7 @@ footer { padding-left: 8px;}
 @media (min-width: 51em) {
 
     header {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .body {
@@ -212,7 +212,7 @@ footer { padding-left: 8px;}
 @media (max-width: 51em) {
 
     header {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 
     .body {
