@@ -1,9 +1,10 @@
-# Possible MD -> HTML Conversions
+# How to use
+Production building is done through github actions. See `.github/workflows/generate-html.yml`.
 
+Locally building can be done with `python3 ./build.py`
 
-## Using "Glow" + "aha"
-Glow will convert MD to very pretty terminal output. Aha will take that and turn it into an ungodly inefficient HTML file (uses span for each color, can't blame it tho cuase the input is like that)
-`script -q filename.txt glow README.md`
-`cat filename.txt | aha --black > filename.html`
+## Adding new posts
+add new `post-name.md` file to the `posts/` dir. This will create a post titled "Post Name".
 
-## Github action MD to HTML add style block that looks like Glow?
+Images should (but are not required to, just be aware of production scope) go in the `img/post-name` directory.
+Reference them in the MD as `../img/post-name/image-name.png`
