@@ -72,8 +72,10 @@ _Early May_
 Starting with the [Getting Started](https://wiki.unraid.net/Articles/Getting_Started) article. It tells me to check that my hardware is compatible. Looks like I need a flash drive that is "2GB or larger". I got my trusty Corsair Flash Voyager Slider 32GB, I'm sure that will work just great! I pulled up the official USB Creator Tool and get to flashing the OS onto the drive. It Hangs.
 
 Okay, further research on the forums tells me that USB 3.0 drives are not well-supported.
+
 ![usb_3_support](../img/unraid/usb_3_support.png)
 Ok weird, but sure. I'll pop in one of my random generic USB 2.0 drives. The flash tool doesn't recognize it at all. I tried reformatting the drive and still no luck. [This](https://www.reddit.com/r/unRAID/comments/fmrngk/unraid_usb_creator_cant_find_usb/) reddit thread suggests I try the manual installation. Ok sure. I did that and plugged it into my server. Got a [new error](https://www.reddit.com/r/unRAID/comments/fmrngk/unraid_usb_creator_cant_find_usb/). I guess my drive is corrupted? Ok try another drive with the USB tool. It doesn't see it. I decided to try it on my Mac with a USB-A to C adapter. It shows up, formats, and boots unraid! Alright, it took me a couple nights, a handful of flash drive candidates, and two computers to get there, but it's working now, and I'm in the OS.
+
 ![My Firefox history showing a lot of searches for USB issues in unraid](../img/unraid/usb_firefox_history.png)
 So not a great start, but I'm happy its up and working.
 
@@ -84,9 +86,11 @@ From my understanding this was a user built extension that was recently merged [
 I say 'kinda' as they include the button for it in their UI by default, but will prompt you to download the external plugin if you don't already have it installed. CA is definitely a key part of Unraid – so much so that they have had a [dedicated page](https://unraid.net/community/apps) for it on their site since at least Oct 2020 ([archive](https://web.archive.org/web/20201218234535/https://unraid.net/community/apps)), and I'd say it's been the de facto Docker installer for Unraid since well before then. Every tutorial you find (even the official ones!) will point you there first.
 
 Why is it loved so much? Well, the actual Unraid manager for docker isn't all that great:
+
 ![add docker container](../img/unraid/add_container.png)
 
 The template dropdown by default includes Plex, Sync, sysdream, and UnraidNet. It will appear more populated once you set up CA, and install some apps from there.
+
 ![docker templates](../img/unraid/docker_templates.png)
 
 As I'm about to complain about how hard this interface is to use, I just came across this line in the [official Unraid Docker documentation](https://wiki.unraid.net/Manual/Docker_Management#Adding_Applications_as_Containers); "**This method [the built-in docker system] is now deprecated and the recommended way to add all containers is via Community Applications**". So now I get to shift my complaint from 'it is hard to install your own Docker apps,' to 'Unraid _does not officially support_ docker natively'. Well I guess they technically support it natively, as the system has Docker installed and kept up to date, but they don't support it via the GUI without 3rd party tools. So now support for Dockerization has moved off LimeTech's plate and onto that of this [157-page forum thread](https://forums.unraid.net/topic/38582-plug-in-community-applications/), and support for specific containers to [this sub-forum](https://forums.unraid.net/forum/47-docker-containers/).
@@ -101,9 +105,11 @@ This whole experience made me realize the audience for unraid is probably those 
 _July_
 
 During the hot summer months unraid was sending me 20-some-odd hard drive temperature warnings a day alerting me of over 60deg. The Air 240 is a dual chamber design, keeping airflow on the PSU and disk side fully separate from the MOBO side. I considered buying [this 3D printed fan mount](https://archive.ph/OWwhN) to replace the HDD cage cover.
+
 ![3D Printed Cage](../img/unraid/3d-printed-cage.jpg)
 
 Though, ultimately I decided I could just do the equivalent myself and glued a fan grill to the rear and attached the fan to that.
+
 ![image3](../img/unraid/image3.jpg)
 
 ## Upgrading the Network
@@ -117,14 +123,17 @@ It would probably fall right off if shaken or flipped, but it does the trick.
 
 ## The Final Upgrade: PSU
 The last thing I wanted to do for the near future for the server was to upgrade its power supply. It was currently running a seven-year-old bronze rated Corsair PSU that I was never super comfortable running all my valuable data off of. So I shopped around (opened PC part-picker, selected all 80+ Gold and above ratings, around 500-700 Watts) and decided on the 650W Platinum rated EVGA SuperNOVA 650 P2. Discounted on the manufacturer's website for $63 total, I was surprised how low it was below its usual $110+ price range. 
+
 ![psu order](../img/unraid/psu-order.png)
 
 When the PSU came I got right to plugging it in, replacing the dusty old PSU with this new one. Coming in at a surprising full inch or so bigger than the previous power supply, but it fit just fine. Quick and easy installation, plugged it in and turned it on. I see the OS boot just fine, so I go off and eat dinner. I come back and go to start the array and am surprised to see none of my HDDs, nor my cache SSD are recognized, with unRAID telling me there is "no devices" in the drive selection dropdown.
 
 I decided to replace the SATA Power cable and I noticed something not quite that cool. The pin-outs are different. The cables look the exact same from anywhere other than the tiny metallic pin-outs inside the power supply end (though one is certainly more dusty than another). Turns out ([source](https://superuser.com/questions/1715077/new-psu-not-providing-power-to-hard-drives)) Corsair does this:
+
 ![corsair psu pinout](../img/unraid/corsair_psu.jpg)
 
 While EVGA does this:
+
 ![evga psu pinout](../img/unraid/evga_psu.jpg)
 
 How I would ever know that is a mystery. When I mentioned this to friends only a few said they had vaguely heard something about this being a discrepancy between manufactures. Well whatever, I'll swap the cables over to the correct ones and reboot. Nope. No devices detected. No disk spin at all, even.
@@ -132,6 +141,7 @@ How I would ever know that is a mystery. When I mentioned this to friends only a
 Well this wasn't good lol.
 
 Googling around in despair I find that almost everyone everywhere seems to either reference or copy/paste their answer to the "I used the wrong PSU cable" problem from [this hddoracle.com thread](https://archive.ph/8giHG). So to sum it up there is a Transient Voltage Suppression (TVS) diode on the inner-side of the exposed PCB on the back of the drive whose job is [includes] to prevent overvoltages from making it to the inner-workings of the drive by short-circuiting itself out.
+
 ![hdd pcb](../img/unraid/hdd_pcb.jpg)
 
 Well I borrowed a fancy-schmancy multimeter from a lab at my Uni and fumbled around till I found a page in the manual online that sounded like what I was looking for.
