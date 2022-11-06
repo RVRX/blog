@@ -1,4 +1,4 @@
-# RVRX Blog (WIP)
+# Cole Manning // RVRX
 
 ## About Me
 
